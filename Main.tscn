@@ -192,7 +192,7 @@ margin_top = 7.0
 margin_right = 172.0
 margin_bottom = 52.0
 custom_fonts/font = SubResource( 1 )
-text = "Probar"
+text = "Chequear"
 
 [node name="TileMapPuntos" type="TileMap" parent="."]
 tile_set = SubResource( 2 )

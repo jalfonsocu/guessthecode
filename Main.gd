@@ -40,16 +40,18 @@ func _on_ButtonProbar_pressed():
 		else:
 			var blancas = 0
 			var negras = 0
-			var temporal_code = code_to_evaluate
+			var temporal_code = Global.code.duplicate(true)
+			var temporal_evaluate = code_to_evaluate.duplicate(true)
 			
 			for i in range(5):
 				for j in range(5):
-					if Global.code[i] == code_to_evaluate[j] && temporal_code[j] != -1:
+					if temporal_code[i] == temporal_evaluate[j] && temporal_evaluate[j] != -1:
 						if(i == j):
 							negras = negras +1
 						else:
 							blancas = blancas + 1 
-						temporal_code[j] = -1
+						temporal_code[i] = -1
+						temporal_evaluate[j] = -1
 			
 			#var cx :Vector2 = [[game_enabled_row,5]]
 			tilemap_puntos.set_cellv(Vector2(5, game_enabled_row), blancas )
