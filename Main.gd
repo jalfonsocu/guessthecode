@@ -36,6 +36,7 @@ func _on_ButtonProbar_pressed():
 	
 	if code_to_evaluate[0] != 0 and code_to_evaluate[1] != 0 and code_to_evaluate[2] != 0 and code_to_evaluate[3] != 0 and code_to_evaluate[4] != 0:
 		if code_to_evaluate == Global.code:
+			get_node("AcceptDialog").popup()
 			print("iguales") # dar estado ganador
 		else:
 			var blancas = 0
@@ -48,8 +49,14 @@ func _on_ButtonProbar_pressed():
 					if temporal_code[i] == temporal_evaluate[j] && temporal_evaluate[j] != -1:
 						if(i == j):
 							negras = negras +1
-						else:
-							blancas = blancas + 1 
+							temporal_code[i] = -1
+							temporal_evaluate[j] = -1
+			
+			
+			for i in range(5):
+				for j in range(5):
+					if temporal_code[i] == temporal_evaluate[j] && temporal_evaluate[j] != -1:
+						blancas = blancas + 1 
 						temporal_code[i] = -1
 						temporal_evaluate[j] = -1
 			

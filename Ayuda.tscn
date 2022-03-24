@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Resouces/fonts/kirifont/KiriFont.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Ayuda.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+extra_spacing_bottom = 3
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 1 )
+
+[node name="Ayuda" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_top = 17.0
+margin_right = 511.0
+margin_bottom = 677.0
+custom_fonts/font = SubResource( 1 )
+text = "Adivina la clave es un juego de acertijos donde un jugador, o la IA, crean una clave secreta combinando colores. Esta clave debe ser adivinada por el otro jugador usando las pistas que brinda el juego.
+Las claves tienen una longitud de 5 elementos, cada elemento puede ser uno de 8 colores, se pueden crear claves con colores repetidos.
+Para romper la clave el jugador cuenta con 12 oportunidades.
+Cada intento se valora, si un color de la clave coincide con el intento en lugar y color, se abona un punto negro. Si un color esta presente en la clave y el intento, pero en diferentes posiciones, se abona un punto blanco. Al obtener 5 puntos negros, ganas.
+Si en la clave o intento hay dos posiciones del mismo color y en el otro solo uno, se otorga solo un punto, negro si alguna de las posiciones coincide o blanco si no.
+"
+autowrap = true
+
+[node name="Button" type="Button" parent="."]
+margin_left = 158.0
+margin_top = 699.0
+margin_right = 337.0
+margin_bottom = 755.0
+custom_fonts/font = SubResource( 2 )
+text = "Regresar"
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

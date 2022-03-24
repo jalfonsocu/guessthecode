@@ -1,8 +1,5 @@
-extends Node
+extends Node2D
 
-var game_mode = 0
-var code = []
-var intro_scene
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -11,9 +8,14 @@ var intro_scene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	randomize()
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Button_pressed():
+	get_tree().change_scene("res://Intro.tscn")
+	
